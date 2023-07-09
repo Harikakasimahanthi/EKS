@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create Geth Deployment
+
+Parameters:
+  ClusterName:
+    Type: String
+  Namespace:
+    Type: String
+
+Resources:
+  GethDeployment:
+    Type: AWS::CloudFormation::Interface
+    Metadata:
+      AWS::CloudFormation::Interface:
+        ParameterGroups:
+          - Label:
+              default: Cluster Configuration
+            Parameters:
+              - ClusterName
+          - Label:
+              default: Deployment Configuration
+            Parameters:
+              - Namespace
+        ParameterLabels:
+          ClusterName:
+            default: EKS Cluster Name
+          Namespace:
+            default: Namespace

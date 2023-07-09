@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create Geth Namespace
+
+Parameters:
+  ClusterName:
+    Type: String
+
+Resources:
+  GethNamespace:
+    Type: AWS::CloudFormation::Interface
+    Metadata:
+      AWS::CloudFormation::Interface:
+        ParameterGroups:
+          - Label:
+              default: Cluster Configuration
+            Parameters:
+              - ClusterName
+        ParameterLabels:
+          ClusterName:
+            default: EKS Cluster Name
+    Outputs:
+      NamespaceName:
+        Value: geth
